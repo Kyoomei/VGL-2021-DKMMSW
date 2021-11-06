@@ -114,9 +114,31 @@ InputManager:
     sensitivity: 0.1
     snap: 0
     invert: 0
+<<<<<<< HEAD
     type: 1
     axis: 0
     joyNum: 0
+=======
+    type: 2
+    axis: 3
+    joyNum: 3
+  - serializedVersion: 3
+    m_Name: JoyRight
+    descriptiveName: 
+    descriptiveNegativeName: 
+    negativeButton: 
+    positiveButton: 
+    altNegativeButton: 
+    altPositiveButton: 
+    gravity: 0
+    dead: 0
+    sensitivity: 0.1
+    snap: 0
+    invert: 0
+    type: 2
+    axis: 3
+    joyNum: 3
+>>>>>>> 202bed0b9a12dc9c3294c3cf9ca9913e0b350995
   - serializedVersion: 3
     m_Name: Mouse Y
     descriptiveName: 
@@ -130,9 +152,15 @@ InputManager:
     sensitivity: 0.1
     snap: 0
     invert: 0
+<<<<<<< HEAD
     type: 1
     axis: 1
     joyNum: 0
+=======
+    type: 2
+    axis: 3
+    joyNum: 3
+>>>>>>> 202bed0b9a12dc9c3294c3cf9ca9913e0b350995
   - serializedVersion: 3
     m_Name: Mouse ScrollWheel
     descriptiveName: 
@@ -293,6 +321,7 @@ InputManager:
     type: 0
     axis: 0
     joyNum: 0
+<<<<<<< HEAD
   - serializedVersion: 3
     m_Name: Enable Debug Button 1
     descriptiveName: 
@@ -485,3 +514,5 @@ InputManager:
     type: 2
     axis: 5
     joyNum: 0
+=======
+>>>>>>> 202bed0b9a12dc9c3294c3cf9ca9913e0b350995
