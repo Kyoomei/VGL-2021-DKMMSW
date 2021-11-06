@@ -7,6 +7,9 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
+    int score;
+    public int loop;
+
     private void Awake()
     {
         if (instance != null && instance != this)
