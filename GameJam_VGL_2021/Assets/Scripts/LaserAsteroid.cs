@@ -17,7 +17,7 @@ public class LaserAsteroid : MonoBehaviour
     {
         if (other.tag == "AsteroidL" || other.tag == "AsteroidB")
         {
-            other.GetComponent<Asteroid>().life--;
+            other.GetComponent<Asteroid>().Life--;
             Destroy(this.gameObject);
         }
     }

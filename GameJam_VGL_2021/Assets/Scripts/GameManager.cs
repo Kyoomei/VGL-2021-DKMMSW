@@ -6,9 +6,27 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
+    public GameObject animTransition;
 
+    public float transitionTime;
     int score;
     public int loop;
+
+    int nextScene = 1;
+
+    public int NextScene
+    {
+        get{
+            return nextScene;
+        }
+        set{
+            nextScene++;
+            if (nextScene == 5)
+            {
+                nextScene = 1;
+            }
+        }
+    }
 
     private void Awake()
     {
@@ -20,6 +38,24 @@ public class GameManager : MonoBehaviour
         instance = this;
 
         DontDestroyOnLoad(gameObject);
+    }
+
+
+    
+
+    public void StartGame()
+    {
+        StartCoroutine(LoadLevel(nextScene + 1));
+        NextScene++;
+    }
+
+    IEnumerator LoadLevel(int levelIndex)
+    {
+        SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene());
+        SceneManager.LoadSceneAsync(1);
+        yield return new WaitForSeconds(transitionTime);
+        SceneManager.LoadSceneAsync(levelIndex);
+        SceneManager.UnloadSceneAsync(1);
     }
 
 }

@@ -396,7 +396,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1112046287}
   - component: {fileID: 1112046286}
-  - component: {fileID: 1112046288}
   m_Layer: 0
   m_Name: gm
   m_TagString: Untagged
@@ -417,9 +416,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ballPrefab: {fileID: 578813700887296983, guid: d6a7286039595724f9689067471239d0, type: 3}
+  timer: 10
   spawn1: {fileID: 0}
   spawn2: {fileID: 0}
   spawn3: {fileID: 0}
+  gameStart: 0
+  timerIsRunning: 1
 --- !u!4 &1112046287
 Transform:
   m_ObjectHideFlags: 0
@@ -434,19 +436,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1112046288
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1112046285}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c927b7f20b8777247a4ed7c97d6fb9db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  loop: 3
 --- !u!1 &1117950642
 GameObject:
   m_ObjectHideFlags: 0
@@ -471,7 +460,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1117950642}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.65, y: 0, z: 0}
+  m_LocalPosition: {x: 3.8, y: -0.61, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

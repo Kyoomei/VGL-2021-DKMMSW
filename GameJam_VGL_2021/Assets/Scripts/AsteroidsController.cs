@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 [System.Serializable]
 public class Boundary
@@ -22,9 +23,13 @@ public class AsteroidsController : MonoBehaviour
 
     private Vector3 lookDirection = Vector3.zero;
 
+    public Transform canon;
+    public AudioSource laserSound;
+
     private void Start()
     {
         rigidbody = GetComponent<Rigidbody>();
+        laserSound = GetComponent<AudioSource>();
     }
 
     void FixedUpdate()
@@ -51,8 +56,9 @@ public class AsteroidsController : MonoBehaviour
 
         if (Input.GetAxis("Fire1") != 0 && time <= 0)
         {
-            Instantiate(laser, transform.TransformPoint(Vector3.forward * 2), transform.localRotation);
+            Instantiate(laser, canon.position, transform.localRotation);
             time = cooldown;
+            laserSound.Play();
         }
         
     }

@@ -8,6 +8,8 @@ TagManager:
   - AsteroidR
   - AsteroidB
   - DeathZone
+  - Background
+  - gm
   layers:
   - Default
   - TransparentFX

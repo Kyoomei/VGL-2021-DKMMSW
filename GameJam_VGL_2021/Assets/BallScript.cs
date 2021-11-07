@@ -6,7 +6,7 @@ public class BallScript : MonoBehaviour
 {
     public float speed;
 
-    
+    AudioSource ballHit;
 
     private void Awake()
     {
@@ -16,11 +16,15 @@ public class BallScript : MonoBehaviour
     public void SpawnBall()
     {
         
-        GetComponent<Rigidbody2D>().velocity = Vector2.left * speed;
+        GetComponent<Rigidbody2D>().velocity = new Vector2(-1, Random.Range(-0.2f, 0.2f)) * speed;
+        ballHit = GetComponent<AudioSource>();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        
+        ballHit.Play();
+
         if (collision.gameObject.name == "Player")
         {
             float y = HitFactor(transform.position,
