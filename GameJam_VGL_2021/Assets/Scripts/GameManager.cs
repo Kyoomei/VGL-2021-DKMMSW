@@ -8,10 +8,13 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     public GameObject animTransition;
 
+    AudioSource gameTheme;
+
     public float transitionTime;
     int score;
     public int loop;
 
+    bool themeIsPlayed;
     int nextScene = 1;
 
     public int NextScene
@@ -45,6 +48,11 @@ public class GameManager : MonoBehaviour
 
     public void StartGame()
     {
+        if (themeIsPlayed == false)
+        {
+            themeIsPlayed = true;
+            gameTheme.Play();
+        }
         StartCoroutine(LoadLevel(nextScene + 1));
         NextScene++;
     }
