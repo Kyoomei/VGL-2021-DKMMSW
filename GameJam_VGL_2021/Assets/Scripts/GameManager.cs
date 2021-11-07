@@ -14,8 +14,8 @@ public class GameManager : MonoBehaviour
     int score;
     public int loop;
 
-    bool themeIsPlayed;
-    int nextScene = 1;
+    public bool themeIsPlayed;
+    public int nextScene = 2;
 
     public int NextScene
     {
@@ -24,9 +24,9 @@ public class GameManager : MonoBehaviour
         }
         set{
             nextScene++;
-            if (nextScene == 5)
+            if (nextScene > 5)
             {
-                nextScene = 1;
+                nextScene = 2;
             }
         }
     }
@@ -41,6 +41,8 @@ public class GameManager : MonoBehaviour
         instance = this;
 
         DontDestroyOnLoad(gameObject);
+
+        gameTheme =  GetComponent<AudioSource>();
     }
 
 
@@ -53,8 +55,28 @@ public class GameManager : MonoBehaviour
             themeIsPlayed = true;
             gameTheme.Play();
         }
-        StartCoroutine(LoadLevel(nextScene + 1));
-        NextScene++;
+        StartCoroutine(LoadLevel(nextScene));
+        
+    }
+    public void StartGame2()
+    {
+        if (themeIsPlayed == false)
+        {
+            themeIsPlayed = true;
+            gameTheme.Play();
+        }
+        StartCoroutine(LoadLevel2(nextScene));
+        
+    }
+    public void StartGame3()
+    {
+        if (themeIsPlayed == false)
+        {
+            themeIsPlayed = true;
+            gameTheme.Play();
+        }
+        StartCoroutine(LoadLevel3(nextScene));
+        
     }
 
     IEnumerator LoadLevel(int levelIndex)
@@ -62,8 +84,27 @@ public class GameManager : MonoBehaviour
         SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene());
         SceneManager.LoadSceneAsync(1);
         yield return new WaitForSeconds(transitionTime);
-        SceneManager.LoadSceneAsync(levelIndex);
+        SceneManager.LoadSceneAsync(2);
         SceneManager.UnloadSceneAsync(1);
     }
+
+    IEnumerator LoadLevel2(int levelIndex)
+    {
+        SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene());
+        SceneManager.LoadSceneAsync(1);
+        yield return new WaitForSeconds(transitionTime);
+        SceneManager.LoadSceneAsync(3);
+        SceneManager.UnloadSceneAsync(1);
+    }
+
+    IEnumerator LoadLevel3(int levelIndex)
+    {
+        SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene());
+        SceneManager.LoadSceneAsync(1);
+        yield return new WaitForSeconds(transitionTime);
+        SceneManager.LoadSceneAsync(4);
+        SceneManager.UnloadSceneAsync(1);
+    }
+
 
 }

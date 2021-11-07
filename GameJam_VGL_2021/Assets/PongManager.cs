@@ -80,7 +80,7 @@ public class PongManager : MonoBehaviour
                 
                 timerIsRunning = false;
                 GameManager.instance.NextScene++;
-                GameManager.instance.StartGame();
+                GameManager.instance.StartGame3();
                 timer = 1;
             }
             

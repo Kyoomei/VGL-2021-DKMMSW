@@ -104,7 +104,7 @@ public class AsteroidManager : MonoBehaviour
     {
         yield return new WaitForSeconds(1);
 
-        GameManager.instance.StartGame();
+        GameManager.instance.StartGame2();
         StopCoroutine("NextGame");
     }
 }
