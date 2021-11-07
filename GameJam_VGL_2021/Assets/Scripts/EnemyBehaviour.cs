@@ -33,7 +33,7 @@ public class EnemyBehaviour : MonoBehaviour
             if(other.gameObject.name == "Cube (1)" || other.gameObject.name == "Cube"){
                 ChangeAlienDirection(originalPos);
             }
-            if(other.gameObject.name == "Player"){
+            if(other.gameObject.name == "Player" || other.gameObject.name == "Laser(Clone)"){
                 EndEnemy();
             }
     }
@@ -41,7 +41,7 @@ public class EnemyBehaviour : MonoBehaviour
     // change enemy direction on z axis
     void ChangeAlienDirection(Vector3 oPos){
         Speed = -Speed;
-        Vector3 diff = new Vector3(0,0,1);
+        Vector3 diff = new Vector3(0,0,2);
         this.gameObject.transform.position = this.gameObject.transform.position - diff;
     }
 
