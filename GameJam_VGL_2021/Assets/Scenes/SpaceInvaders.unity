@@ -232,6 +232,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3abce2100c5d1fe4eaae8902e33a8418, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Speed: 4
+  wallc: {fileID: 0}
+  boundary:
+    xMin: 0
+    xMax: 0
+    zMin: 0
+    zMax: 0
 --- !u!54 &30076415
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -253,6 +260,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3063968316848037935, guid: d6256b33b95b5ac41a2a58ad26444d6b, type: 3}
   m_PrefabInstance: {fileID: 3063968316572850900}
   m_PrefabAsset: {fileID: 0}
+--- !u!54 &117898057 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 3063968316848038357, guid: d6256b33b95b5ac41a2a58ad26444d6b, type: 3}
+  m_PrefabInstance: {fileID: 3063968316572850900}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &117898062
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -265,6 +277,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9deb466f9a8c6c345934764473e5c668, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  boundary:
+    xMin: 0
+    xMax: 0
+    zMin: 0
+    zMax: 0
+  laser: {fileID: 1514304873909816463, guid: 57788d636b8f1f447acc8cde95df00bc, type: 3}
+  cooldown: 0
+  rb: {fileID: 117898057}
 --- !u!1 &222384299
 GameObject:
   m_ObjectHideFlags: 0
@@ -519,6 +539,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3abce2100c5d1fe4eaae8902e33a8418, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Speed: 4
+  wallc: {fileID: 0}
+  boundary:
+    xMin: 0
+    xMax: 0
+    zMin: 0
+    zMax: 0
 --- !u!54 &518051932
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -786,6 +813,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3abce2100c5d1fe4eaae8902e33a8418, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Speed: 4
+  wallc: {fileID: 346017329}
+  boundary:
+    xMin: 0
+    xMax: 0
+    zMin: 0
+    zMax: 0
 --- !u!54 &1067291305
 Rigidbody:
   m_ObjectHideFlags: 0
