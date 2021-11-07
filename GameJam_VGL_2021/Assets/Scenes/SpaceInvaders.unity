@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 30076411}
   - component: {fileID: 30076414}
   - component: {fileID: 30076415}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Alien3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -444,7 +444,7 @@ GameObject:
   - component: {fileID: 518051928}
   - component: {fileID: 518051931}
   - component: {fileID: 518051932}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Alien2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -562,82 +562,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!1 &789039649
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 789039652}
-  - component: {fileID: 789039651}
-  - component: {fileID: 789039650}
-  m_Layer: 0
-  m_Name: Gm
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &789039650
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 789039649}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0c721b20ef1d4d43bd4679b84a2b481, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  numberAsteroidL: 1
-  numberAsteroidB: 2
-  asteroidL: {fileID: 5022554477550498406, guid: c2b05cd7f241ce5489927f4f121fd318, type: 3}
-  asteroidB: {fileID: 1995481093293726763, guid: 5768d39e02b98a0439211a9960b38451, type: 3}
-  spawnDistance: 15
-  trajectoryVariance: 15
-  position:
-  - {x: 0, y: 0, z: -11}
-  - {x: 0, y: 0, z: 11}
-  - {x: 17, y: 0, z: 0}
-  - {x: -17, y: 0, z: 0}
-  - {x: 17, y: 0, z: 5}
-  - {x: -17, y: 0, z: 10}
-  - {x: 3, y: 0, z: -11}
-  - {x: 6, y: 0, z: 11}
-  - {x: 5, y: 0, z: 11}
-  - {x: 17, y: 0, z: -11}
-  asteroidSprite: []
-  scoreDifficulty: 10
---- !u!114 &789039651
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 789039649}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c927b7f20b8777247a4ed7c97d6fb9db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  loop: 0
---- !u!4 &789039652
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 789039649}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.85809463, y: 20, z: -1.4376419}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 2065965160}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1026712092
 GameObject:
   m_ObjectHideFlags: 0
@@ -718,7 +642,7 @@ GameObject:
   - component: {fileID: 1067291301}
   - component: {fileID: 1067291304}
   - component: {fileID: 1067291305}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Alien1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1286,11 +1210,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!4 &2065965160 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3063968316848038356, guid: d6256b33b95b5ac41a2a58ad26444d6b, type: 3}
-  m_PrefabInstance: {fileID: 3063968316572850900}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3063968316572850900
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1358,5 +1277,6 @@ PrefabInstance:
       propertyPath: m_CastShadows
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3063968316848037928, guid: d6256b33b95b5ac41a2a58ad26444d6b, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: d6256b33b95b5ac41a2a58ad26444d6b, type: 3}

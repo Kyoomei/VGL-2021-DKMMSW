@@ -24,7 +24,7 @@ public class PlayerBehavior : MonoBehaviour
     {
 
         // Player inputs
-        Vector3 m_Input = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+        Vector3 m_Input = new Vector3(Input.GetAxis("Horizontal"), 0, 0);
         rb.MovePosition(transform.position + m_Input * Time.deltaTime * speed * velocity);
 
         // Gestion du temps
