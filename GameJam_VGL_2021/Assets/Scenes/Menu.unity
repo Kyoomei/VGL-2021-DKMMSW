@@ -222,6 +222,8 @@ MonoBehaviour:
   animTransition: {fileID: 0}
   transitionTime: 5
   loop: 1
+  themeIsPlayed: 0
+  nextScene: 2
 --- !u!4 &803412995
 Transform:
   m_ObjectHideFlags: 0
@@ -248,7 +250,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: f8f1139911f1c8141b1a3d65510e06fd, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 0
   Mute: 0
