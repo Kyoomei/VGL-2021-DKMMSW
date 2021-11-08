@@ -82,7 +82,9 @@ public class MenuScript : MonoBehaviour
             case 1:
             // Start Game
             // Asteroids 
-            SceneManager.LoadScene("Asteroids");
+            LoadLevelByName("Asteroids");
+            gm = GameObject.Find("GameObject");
+            gm.GetComponent<GameManager>().StartGame();
             break;
             case 2:
             // Options
@@ -92,5 +94,10 @@ public class MenuScript : MonoBehaviour
             Application.Quit();
             break;
         }
+    }
+    public void LoadLevelByName(string levelToLoadName)
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene(levelToLoadName);
     }
 }
