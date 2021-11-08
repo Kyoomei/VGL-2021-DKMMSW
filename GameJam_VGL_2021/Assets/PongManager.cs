@@ -6,15 +6,18 @@ public class PongManager : MonoBehaviour
 {
     public GameObject ballPrefab;
 
+    public float timer;
+
     public Transform spawn1, spawn2, spawn3;
 
     GameObject ball;
     GameObject ball2;
     GameObject ball3;
 
-    
+    public bool gameStart;
+    public bool timerIsRunning = true;
 
-    private void Start()
+    private void StartGame()
     {
         switch (GameManager.instance.loop)
         {
@@ -25,7 +28,7 @@ public class PongManager : MonoBehaviour
                 break;
 
             case 2:
-                ball = Instantiate(ballPrefab, new Vector3(3.65f, 0, 0), Quaternion.identity);
+                ball = Instantiate(ballPrefab, new Vector3(3.8f, -0.5f, 0), Quaternion.identity);
                 ball.GetComponent<BallScript>().speed = 10f;
                 ball.GetComponent<BallScript>().SpawnBall();
 
@@ -59,6 +62,28 @@ public class PongManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (gameStart == false)
+        {
+            StartGame();
+            gameStart = true;
+        }
+
+    
+        if (timerIsRunning)
+        {
+            if (timer > 0)
+            {
+                timer -= Time.deltaTime;
+            }
+            else
+            {
+                
+                timerIsRunning = false;
+                GameManager.instance.NextScene++;
+                GameManager.instance.StartGame3();
+                timer = 1;
+            }
+            
+        }
     }
 }

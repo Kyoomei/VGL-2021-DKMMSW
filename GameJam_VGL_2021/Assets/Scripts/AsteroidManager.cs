@@ -20,6 +20,10 @@ public class AsteroidManager : MonoBehaviour
 
     public Sprite[] asteroidSprite;
 
+    public int asteroidNumber;
+
+    public bool gameStart;
+
     public int Score
     {
         get
@@ -37,7 +41,7 @@ public class AsteroidManager : MonoBehaviour
 
     public int scoreDifficulty;
     // Start is called before the first frame update
-    void Start()
+    void StartGame()
     {
         /*if (GameManager.instance.loop == 1)
         {
@@ -54,7 +58,11 @@ public class AsteroidManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (gameStart == false)
+        {
+            StartGame();
+            gameStart = true;
+        }
     }
 
     void InstantiateRandomAsteroid()
@@ -67,7 +75,8 @@ public class AsteroidManager : MonoBehaviour
             
             Instantiate(asteroidL, position[index], Quaternion.Euler(90, 0, 0));
             asteroidL.GetComponent<Asteroid>().SetTrajectory();
-            position.Remove(position[index]);          
+            position.Remove(position[index]);         
+            asteroidNumber++; 
         }
         for (int i = 0; i < numberAsteroidB; i++)
         {
@@ -76,6 +85,7 @@ public class AsteroidManager : MonoBehaviour
             Instantiate(asteroidB, position[index], Quaternion.Euler(90, 0, 0));
             asteroidL.GetComponent<Asteroid>().SetTrajectory();
             position.Remove(position[index]);
+            asteroidNumber++;
         }
 
 
@@ -84,9 +94,17 @@ public class AsteroidManager : MonoBehaviour
 
     public void CheckScore()
     {
-        if (score == scoreDifficulty)
+        if (asteroidNumber == 0)
         {
-            Debug.Log("win");
+            StartCoroutine("NextGame");
         }
+    }
+
+    IEnumerator NextGame()
+    {
+        yield return new WaitForSeconds(1);
+
+        GameManager.instance.StartGame2();
+        StopCoroutine("NextGame");
     }
 }

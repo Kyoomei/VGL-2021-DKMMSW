@@ -12,7 +12,32 @@ public class Asteroid : MonoBehaviour
 
     public Transform target;
 
-    public int life;
+[SerializeField]
+    int life;
+
+    AudioSource destroySound;
+
+    public int Life{
+        get{
+            return life;
+        }
+        set{
+            life--;
+            if (life == 0)
+            {
+                if (gameObject.tag == "AsteroidL")
+                {
+                    EndAsteroid();
+
+                }
+                else if (gameObject.tag == "AsteroidB")
+                {
+                    SplitAsteroid();
+
+                }
+            }
+        }
+    }
 
     public Sprite endSprite;
 
@@ -20,11 +45,13 @@ public class Asteroid : MonoBehaviour
 
     public GameObject asteroidL;
 
+    public AsteroidManager manager;
+
     // Start is called before the first frame update
     void Start()
     {
         //rb = GetComponent<Rigidbody>();
-        
+        destroySound = GetComponent<AudioSource>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -37,26 +64,13 @@ public class Asteroid : MonoBehaviour
 
     private void Update()
     {
-        Invoke("SetTrajectory", 1);
-        if (life == 0)
-        {
-            if (gameObject.tag == "AsteroidL")
-            {
-                EndAsteroid();
-
-            }
-            else if (gameObject.tag == "AsteroidB")
-            {
-                SplitAsteroid();
-
-            }
-        }
-
-        Destroy(this, 10);
+        Invoke("SetTrajectory", 0.5f);
+        
     }
 
     public void SetTrajectory()
     {
+        manager = GameObject.FindWithTag("gm").GetComponent<AsteroidManager>();
         rb.velocity = (target.transform.position - transform.position).normalized * speed;
     }
 
@@ -65,6 +79,9 @@ public class Asteroid : MonoBehaviour
         GetComponent<Collider>().enabled = false;
         actualSprite.sprite = endSprite;
         rb.velocity = Vector3.zero;
+        manager.asteroidNumber--;
+        manager.Score++;
+        destroySound.Play();
         Destroy(this.gameObject, 1);
     }
 
@@ -74,7 +91,8 @@ public class Asteroid : MonoBehaviour
         ast.GetComponent<Asteroid>().SetTrajectory();
        GameObject ast2 = Instantiate(asteroidL, new Vector3(transform.position.x - 1, transform.position.y, transform.position.z - 1), Quaternion.Euler(90, 0, 0));
         ast2.GetComponent<Asteroid>().SetTrajectory();
-
+        manager.asteroidNumber++;
+        destroySound.Play();
         Destroy(this.gameObject);
     }
     
