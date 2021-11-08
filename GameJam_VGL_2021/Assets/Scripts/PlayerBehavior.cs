@@ -12,11 +12,16 @@ public class PlayerBehavior : MonoBehaviour
     public GameObject laser;
     public float cooldown;
     public Rigidbody rb;
+    public Transform spawnLaser;
+    Animator animator;
+    public ParticleSystem fireShoot;
 
     // Start is called before the first frame update
     void Start()
     {
         transform = gameObject.GetComponent<Transform>();
+        animator = GetComponentInChildren<Animator>();
+        //fireShoot = GetComponentInChildren<ParticleSystem>();
     }
 
     // Update is called once per frame
@@ -36,8 +41,10 @@ public class PlayerBehavior : MonoBehaviour
         // Fire lasers
         if (Input.GetAxis("Fire1") != 0 && time <= 0)
         {
-            Instantiate(laser, transform.TransformPoint(Vector3.forward * 2), transform.localRotation);
+            Instantiate(laser, spawnLaser.position, transform.localRotation);
             time = cooldown;
+            animator.SetTrigger("shoot");
+            fireShoot.Play();
         }
         
     }

@@ -41,6 +41,7 @@ public class GameManager : MonoBehaviour
         instance = this;
 
         DontDestroyOnLoad(gameObject);
+        gameTheme = GetComponent<AudioSource>();
     }
 
 
